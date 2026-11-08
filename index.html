@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wondershot — head-coupled perspective</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #000; overflow: hidden; font-family: ui-monospace, Menlo, monospace; color: #cfd8ff; }
+      canvas#gl { display: block; width: 100vw; height: 100vh; }
+      #hud { position: fixed; left: 12px; top: 12px; font-size: 12px; line-height: 1.5; pointer-events: none; text-shadow: 0 0 4px #000; white-space: pre; }
+      #hud .warn { color: #ffb86b; }
+      #preview { position: fixed; right: 12px; bottom: 12px; width: 240px; border: 1px solid #334; background: #000; display: none; }
+      #preview.show { display: block; }
+      #help { position: fixed; right: 12px; top: 12px; font-size: 12px; text-align: right; line-height: 1.6; opacity: 0.7; pointer-events: none; white-space: pre; }
+      #panel { position: fixed; left: 12px; bottom: 12px; font-size: 12px; background: rgba(10,12,24,0.85); border: 1px solid #334; padding: 10px 12px; display: none; }
+      #panel.show { display: block; }
+      #panel label { display: flex; justify-content: space-between; gap: 12px; margin: 4px 0; }
+      #panel input { width: 80px; background: #111; color: #cfd8ff; border: 1px solid #445; font: inherit; }
+      #start { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,0.75); z-index: 10; }
+      #start button { font: inherit; font-size: 18px; padding: 14px 28px; background: #1a1f3a; color: #fff; border: 1px solid #5560a0; cursor: pointer; }
+      #start p { max-width: 520px; text-align: center; opacity: 0.8; line-height: 1.5; }
+    </style>
+  </head>
+  <body>
+    <canvas id="gl"></canvas>
+    <div id="hud"></div>
+    <div id="help"></div>
+    <canvas id="preview" width="320" height="240"></canvas>
+    <div id="panel"></div>
+    <div id="start">
+      <div style="text-align:center">
+        <h1 style="font-weight:normal;letter-spacing:0.2em">wondershot</h1>
+        <p>Head-coupled perspective: the screen becomes a window. Your head position is estimated from your webcam with an in-browser face/iris model (nothing leaves the device). Sit about arm's length away and press start.</p>
+        <button id="startBtn">start camera</button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
